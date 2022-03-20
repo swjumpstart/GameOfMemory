@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                     buttons[i].setBackgroundResource(R.drawable.heart)
                     buttons[i].tag = "OK"
                     if (compareCardIndex.toString() == i.toString()) {
-                        compareCardIndex = -1
+                        compareCardIndex = i
                     }
                     clicked--
                 }

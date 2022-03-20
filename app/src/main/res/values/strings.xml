@@ -21,4 +21,5 @@
     <string name="button10">button10</string>
     <string name="button11">button11</string>
     <string name="button12">button12</string>
+    <string name="GameTitle">Memory</string>
 </resources>
