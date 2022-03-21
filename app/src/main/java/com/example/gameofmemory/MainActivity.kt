@@ -2,18 +2,14 @@ package com.example.gameofmemory
 
 import android.os.Bundle
 import android.util.Log
-import android.util.Log.INFO
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-//import androidx.navigation.ui.AppBarConfiguration
 import com.example.gameofmemory.databinding.ActivityMainBinding
-import java.util.*
-import java.util.logging.Level.INFO
 
 class MainActivity : AppCompatActivity() {
 
-    //private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +19,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
+        val mButton = findViewById<Button>(R.id.RestartButton)
+
+        mButton.setOnClickListener {
+            val mIntent = intent
+                    finish()
+            startActivity(mIntent)
+        }
 
         //use mutable list to shuffle images for each game
         val images: MutableList<Int> = mutableListOf(R.drawable.bird, R.drawable.butterfly, R.drawable.fish, R.drawable.flask, R.drawable.microscope, R.drawable.molecule,R.drawable.bird, R.drawable.butterfly, R.drawable.fish, R.drawable.flask, R.drawable.microscope, R.drawable.molecule)
@@ -49,40 +52,47 @@ class MainActivity : AppCompatActivity() {
         var clicked = 0
         var turnOver = false
         var compareCardIndex = -1
-        var matched = 0
+        var lastCardIndex = -1
+        var matchedPairs = 0
 
         for (i in 0..11 ) {
             buttons[i].setOnClickListener {
 
                 if (buttons[i].tag.toString() == "OK" && clicked < 2 && !turnOver) {
                     buttons[i].setBackgroundResource(images[i])
-                    //Log.i("******BUTTON img: ", images[i].toString())
                     buttons[i].tag = "FaceUp"
                     //if this is the first card, save index to compare
                     if (clicked == 0) {
                         compareCardIndex = i
+                    }else if (clicked == 1){
+                        lastCardIndex = i
                     }
                     clicked++
                 } else if (buttons[i].tag.toString() == "FaceUp") {
+                    //Log.i("******cardUpFlip: ", i.toString())
                     buttons[i].setBackgroundResource(R.drawable.heart)
                     buttons[i].tag = "OK"
-                    if (compareCardIndex.toString() == i.toString()) {
-                        compareCardIndex = i
-                    }
                     clicked--
-                }
+                    //if last card is only card face up, this becomes the compare card
+                    if (buttons[lastCardIndex].tag.toString() == "FaceUp") {
+                        compareCardIndex = lastCardIndex
+                    }
 
+                }
+                //If 2 cards face up, begin compare
                 if (clicked == 2 && buttons[i].tag == "FaceUp" && buttons[compareCardIndex].tag == "FaceUp") {
                     turnOver = true
 
                     if (images[i].toString() == images[compareCardIndex].toString()) {
                         Toast.makeText(this@MainActivity, "Congrats! Matched!", Toast.LENGTH_SHORT).show()
+                        //matching cards stay face up
                         buttons[i].isClickable = false
                         buttons[compareCardIndex].isClickable = false
                         turnOver = false
                         clicked = 0
-                        matched++
-                        if (matched > 5) {
+                        matchedPairs++
+
+                        if (matchedPairs > 5) {
                             Toast.makeText(this@MainActivity, "Everything is MATCHED!", Toast.LENGTH_SHORT).show()
                         }
 
