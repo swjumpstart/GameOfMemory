@@ -1,5 +1,6 @@
 package com.example.gameofmemory
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -22,9 +23,7 @@ class MainActivity : AppCompatActivity() {
         val mButton = findViewById<Button>(R.id.RestartButton)
 
         mButton.setOnClickListener {
-            val mIntent = intent
-                    finish()
-            startActivity(mIntent)
+            recreate()
         }
 
         //use mutable list to shuffle images for each game
