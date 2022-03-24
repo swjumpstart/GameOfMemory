@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    tools:context=".FirstFragment"
+    app:layout_constraintTop_toBottomOf="@id/textview_first">
 
     <TextView
         android:id="@+id/textview_first"
@@ -18,147 +19,216 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FirstFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.665"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/g5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75"/>
+
     <ImageButton
         android:id="@+id/button1"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button1"
         android:tag="@android:string/yes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_first" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/g1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/g3"
+        app:layout_constraintHorizontal_weight="1"/>
 
     <ImageButton
         android:id="@+id/button2"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button2"
         android:tag="@android:string/yes"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintStart_toEndOf="@+id/button1"
-        app:layout_constraintTop_toBottomOf="@+id/textview_first"/>
+        app:layout_constraintLeft_toLeftOf="@id/g1"
+        app:layout_constraintRight_toRightOf="@id/g2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/g3"
+        app:layout_constraintHorizontal_weight="1"/>
 
     <ImageButton
         android:id="@+id/button3"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button3"
         android:tag="@android:string/yes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_first" />
+        app:layout_constraintLeft_toLeftOf="@id/g2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/g3"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ImageButton
         android:id="@+id/button4"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button4"
         android:tag="@android:string/yes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/g1"
+        app:layout_constraintTop_toTopOf="@id/g3"
+        app:layout_constraintBottom_toTopOf="@id/g4"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ImageButton
         android:id="@+id/button5"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button5"
         android:tag="@android:string/yes"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
-        app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintLeft_toLeftOf="@id/g1"
+        app:layout_constraintRight_toRightOf="@id/g2"
+        app:layout_constraintTop_toTopOf="@id/g3"
+        app:layout_constraintBottom_toTopOf="@id/g4"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ImageButton
         android:id="@+id/button6"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button6"
         android:tag="@android:string/yes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintLeft_toLeftOf="@id/g2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/g3"
+        app:layout_constraintBottom_toTopOf="@id/g4"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ImageButton
         android:id="@+id/button7"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button7"
         android:tag="@android:string/yes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/g1"
+        app:layout_constraintTop_toTopOf="@id/g4"
+        app:layout_constraintBottom_toTopOf="@id/g5"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ImageButton
         android:id="@+id/button8"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button8"
         android:tag="@android:string/yes"
-        app:layout_constraintEnd_toStartOf="@+id/button9"
-        app:layout_constraintStart_toEndOf="@+id/button7"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintLeft_toLeftOf="@id/g1"
+        app:layout_constraintRight_toRightOf="@id/g2"
+        app:layout_constraintTop_toTopOf="@id/g4"
+        app:layout_constraintBottom_toTopOf="@id/g5"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ImageButton
         android:id="@+id/button9"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button9"
         android:tag="@android:string/yes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintLeft_toLeftOf="@id/g2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/g4"
+        app:layout_constraintBottom_toTopOf="@id/g5"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ImageButton
         android:id="@+id/button10"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button10"
         android:tag="@android:string/yes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button9" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/g1"
+        app:layout_constraintTop_toTopOf="@id/g5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1" />
 
     <ImageButton
         android:id="@+id/button11"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button11"
         android:tag="@android:string/yes"
-        app:layout_constraintEnd_toStartOf="@+id/button12"
-        app:layout_constraintStart_toEndOf="@+id/button10"
-        app:layout_constraintTop_toBottomOf="@+id/button8" />
+        app:layout_constraintLeft_toLeftOf="@id/g1"
+        app:layout_constraintRight_toRightOf="@id/g2"
+        app:layout_constraintTop_toTopOf="@id/g5"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageButton
         android:id="@+id/button12"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/heart"
+        android:src="@drawable/heart"
         android:contentDescription="@string/button12"
         android:tag="@android:string/yes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button9" />
+        app:layout_constraintLeft_toLeftOf="@id/g2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/g5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

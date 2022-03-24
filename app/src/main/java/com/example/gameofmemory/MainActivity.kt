@@ -22,10 +22,6 @@ class MainActivity : AppCompatActivity() {
 
         val mButton = findViewById<Button>(R.id.RestartButton)
 
-        mButton.setOnClickListener {
-            recreate()
-        }
-
         //use mutable list to shuffle images for each game
         val images: MutableList<Int> = mutableListOf(R.drawable.bird, R.drawable.butterfly, R.drawable.fish, R.drawable.flask, R.drawable.microscope, R.drawable.molecule,R.drawable.bird, R.drawable.butterfly, R.drawable.fish, R.drawable.flask, R.drawable.microscope, R.drawable.molecule)
 
@@ -53,6 +49,18 @@ class MainActivity : AppCompatActivity() {
         var compareCardIndex = -1
         var lastCardIndex = -1
         var matchedPairs = 0
+
+        mButton.setOnClickListener {
+            clicked = 0
+            turnOver = false
+            compareCardIndex = -1
+            lastCardIndex = -1
+            matchedPairs = 0
+            for (button in buttons) {
+                button.setBackgroundResource(R.drawable.heart)
+            }
+            images.shuffle()
+        }
 
         for (i in 0..11 ) {
             buttons[i].setOnClickListener {
