@@ -1,8 +1,6 @@
 package com.example.gameofmemory
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
@@ -46,15 +44,15 @@ class MainActivity : AppCompatActivity() {
 
         var clicked = 0
         var turnOver = false
-        var compareCardIndex = -1
-        var lastCardIndex = -1
+        var compareCardIndex = 0
+        var lastCardIndex = 0
         var matchedPairs = 0
 
         mButton.setOnClickListener {
             clicked = 0
             turnOver = false
-            compareCardIndex = -1
-            lastCardIndex = -1
+            compareCardIndex = 0
+            lastCardIndex = 0
             matchedPairs = 0
             for (button in buttons) {
                 button.setBackgroundResource(R.drawable.heart)
